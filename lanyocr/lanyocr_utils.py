@@ -188,7 +188,7 @@ def check_merged_size(text_line: LanyOcrTextLine, rrect: LanyOcrRRect):
 
 def crop_rect(img, rrect):
     points = cv2.boxPoints(rrect)
-    box = np.int0(np.array(points))
+    box = np.int64(np.array(points))
 
     min_x = np.min(box[:, 0])
     max_x = np.max(box[:, 0])
