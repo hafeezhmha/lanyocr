@@ -180,7 +180,7 @@ class LanyOcr:
                     line_angle = line_angle
 
             points = cv2.boxPoints(line_rrect)
-            box = np.int0(np.array(points))
+            box = np.int64(np.array(points))
             center_x = np.sum(box[:, 0]) // 4
             center_y = np.sum(box[:, 1]) // 4
 
@@ -256,7 +256,7 @@ class LanyOcr:
             if visualize_sub_boxes:
                 for sub_rrect in result.line.sub_rrects:
                     points = sub_rrect.points
-                    box = np.int0(np.array(points))
+                    box = np.int64(np.array(points))
                     vis_img = cv2.drawContours(
                         vis_img, [box], 0, COLORS[(idx + 1) % len(COLORS)], 1
                     )
